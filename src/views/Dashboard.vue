@@ -1,11 +1,15 @@
 <template>
   <v-container fluid class="grey lighten-5">
-    <v-row no-gutters>
+    <v-row
+      no-gutters>
       <v-col
-        v-for="n in 3"
+        v-for="n in 9"
         :key="n"
         cols="12"
-        sm="4"
+        sm="12"
+        md="6"
+        lg="4"
+        xl="3"
       >
         <v-card
           class="pa-2 ma-3"
