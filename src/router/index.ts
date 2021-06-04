@@ -16,9 +16,19 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/Dashboard.vue'),
   },
   {
+    path: '/flats',
+    name: 'Flats',
+    component: () => import('../views/Flats.vue'),
+  },
+  {
     path: '/settings',
     name: 'Settings',
     component: () => import('../views/Settings.vue'),
+  },
+  {
+    path: '/tenants',
+    name: 'Tenants',
+    component: () => import('../views/Tenants.vue'),
   },
 ];
 

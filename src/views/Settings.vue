@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="grey lighten-5 pa-0">
+  <div>
     <v-tabs v-model="tab">
       <v-tab v-for="tab in items" :key="tab.tabName">{{tab.tabName}}</v-tab>
     </v-tabs>
@@ -13,7 +13,7 @@
         </keep-alive>
       </v-tab-item>
     </v-tabs-items>
-  </v-container>
+  </div>
 </template>
 
 <script>

@@ -1,9 +1,11 @@
 <template>
   <v-card
-    max-width="100%"
-    height="100vh"
   >
-    <v-navigation-drawer permanent expand-on-hover>
+    <v-navigation-drawer
+      permanent
+      expand-on-hover
+      app
+    >
       <v-list>
         <v-list-item class="px-2">
           <v-list-item-avatar>
@@ -61,11 +63,22 @@ export default {
   name: 'Navigation',
   data() {
     return {
+      overlay: false,
       items: [
         {
           title: 'Panel główny',
           icon: 'dashboard',
           link: '/dashboard',
+        },
+        {
+          title: 'Mieszkania',
+          icon: 'apartment',
+          link: '/flats',
+        },
+        {
+          title: 'Wynajmujący',
+          icon: 'group',
+          link: '/tenants',
         },
         {
           title: 'Ustawienia',
