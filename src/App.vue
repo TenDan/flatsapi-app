@@ -17,7 +17,7 @@
 
 <script>
 // eslint-disable-next-line import/extensions
-import Navigation from '@/components/Navigation';
+import Navigation from '@/components/nav/Navigation';
 
 export default {
   components: {

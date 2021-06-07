@@ -1,12 +1,15 @@
 <template>
   <v-card
+    class="d-none d-md-flex"
   >
     <v-navigation-drawer
+      v-model="drawer"
       permanent
       expand-on-hover
-      app
+      :app="$vuetify.breakpoint.mdAndUp"
     >
-      <v-list>
+      <v-list
+      >
         <v-list-item class="px-2">
           <v-list-item-avatar>
             <v-avatar color="primary" size="56">IN</v-avatar>
@@ -28,7 +31,7 @@
         dense
         nav
       >
-        <v-list-item v-for="item in items"
+        <v-list-item v-for="item in $props.items"
                      :key="item.title"
                      link
                      :to="item.link"
@@ -60,33 +63,14 @@
 
 <script>
 export default {
-  name: 'Navigation',
+  name: 'DrawerNavigation',
   data() {
     return {
-      overlay: false,
-      items: [
-        {
-          title: 'Panel główny',
-          icon: 'dashboard',
-          link: '/dashboard',
-        },
-        {
-          title: 'Mieszkania',
-          icon: 'apartment',
-          link: '/flats',
-        },
-        {
-          title: 'Wynajmujący',
-          icon: 'group',
-          link: '/tenants',
-        },
-        {
-          title: 'Ustawienia',
-          icon: 'settings',
-          link: '/settings',
-        },
-      ],
+      drawer: false,
     };
+  },
+  props: {
+    items: Array,
   },
 };
 </script>

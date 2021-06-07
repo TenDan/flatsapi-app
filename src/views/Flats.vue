@@ -1,5 +1,6 @@
 <template>
   <v-content class="pa-5">
+    <v-subheader>Mieszkania do kupienia</v-subheader>
     <v-card elevation="5" class="mx-5 my-8" v-for="n in 10" :key="n">
       <v-row justify="space-between" align="center">
         <v-col cols="6">
