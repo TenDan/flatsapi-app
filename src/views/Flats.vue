@@ -4,10 +4,10 @@
     <v-card elevation="5" class="mx-5 my-8" v-for="n in 10" :key="n">
       <v-row justify="space-between" align="center">
         <v-col cols="6">
-          <v-card-title class="text-h3">Mieszkanie nr {{n}}</v-card-title>
+          <v-card-title class="text-md-h3">Mieszkanie nr {{n}}</v-card-title>
         </v-col>
         <v-col cols="3">
-          <div class="text-h3 text-center">{{n * 10000}} zł</div>
+          <div class="text-md-h3 text-center">{{n * 10000}} zł</div>
         </v-col>
       </v-row>
       <v-card-text class="text-body-1">Lorem ipsum</v-card-text>
@@ -29,7 +29,7 @@
         right
         color="primary"
         fixed
-        class="ma-5"
+        class="mx-5 mb-15 mb-md-5"
       >
         <v-icon>add</v-icon>
       </v-btn>
