@@ -17,17 +17,18 @@
         <v-card-text>
           <v-container>
             <v-row
-              v-for="parentField in fields"
-              :key="parentField"
+              v-for="(parentField, i) in fields"
+              :key="i"
             >
               <v-col
-                v-for="field in parentField"
-                :key="field"
+                v-for="(field, i) in parentField"
+                :key="i"
                 cols="12"
                 sm="6"
                 md="4"
               >
                 <v-text-field
+                  v-model="inputs[i]"
                   :label="field.name"
                   :rules="field.rules"
                 ></v-text-field>
@@ -57,6 +58,8 @@ export default {
   name: 'Dialog',
   data() {
     return {
+      valid: null,
+      inputs: [],
       dialog: false,
     };
   },
@@ -64,11 +67,17 @@ export default {
     fields: {
       type: Array,
     },
+    action: {
+      type: Function,
+    },
   },
   methods: {
     submit(e) {
       e.preventDefault();
       this.$refs.form.validate();
+      if (this.valid) {
+        this.$props.action(...this.inputs);
+      }
     },
   },
 };

@@ -7,7 +7,7 @@
     color="primary"
     grow
   >
-    <v-btn v-for="item in $props.items" :key="item" :value="item.link" :to="item.link">
+    <v-btn v-for="item in $props.items" :key="item.title" :value="item.link" :to="item.link">
       <span>{{item.title}}</span>
       <v-icon>{{item.icon}}</v-icon>
     </v-btn>

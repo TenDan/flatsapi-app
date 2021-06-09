@@ -1,5 +1,5 @@
 <template>
-  <v-content class="pa-5">
+  <v-main class="pa-5">
     <v-subheader>Twoi wynajmujący</v-subheader>
     <v-container fluid>
       <v-row>
@@ -8,8 +8,8 @@
           sm="6"
           md="4"
           lg="3"
-          v-for="tenant in tenants"
-          :key="tenant"
+          v-for="(tenant, i) in tenants"
+          :key="i"
         >
           <v-card class="pa-5">
             <v-card-title>{{tenant.firstName}} {{tenant.lastName}}</v-card-title>
@@ -17,7 +17,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <Dialog :fields="fields">
+    <Dialog :fields="fields" :action="addTenant">
       <template v-slot:button="props">
         <v-fab-transition>
           <v-btn
@@ -37,7 +37,7 @@
         </v-fab-transition>
       </template>
     </Dialog>
-  </v-content>
+  </v-main>
 </template>
 
 <script>
@@ -84,6 +84,14 @@ export default {
         ],
       ],
     };
+  },
+  methods: {
+    addTenant(firstName, lastName) {
+      this.tenants.push({
+        firstName,
+        lastName,
+      });
+    },
   },
 };
 </script>
