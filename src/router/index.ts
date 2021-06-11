@@ -12,46 +12,52 @@ const routes: Array<RouteConfig> = [
     name: 'Home',
     component: Home,
     meta: {
-      title: `Strona główna - ${PAGE_TITLE}`
-    }
+      title: 'Strona główna',
+    },
   },
   {
     path: '/dashboard',
     name: 'Dashboard',
     component: () => import('../views/Dashboard.vue'),
     meta: {
-      title: `Panel główny - ${PAGE_TITLE}`
-    }
+      title: 'Panel główny',
+    },
   },
   {
     path: '/flats',
     name: 'Flats',
     component: () => import('../views/Flats.vue'),
     meta: {
-      title: `Mieszkania - ${PAGE_TITLE}`
-    }
+      title: 'Mieszkania',
+    },
   },
   {
     path: '/settings',
     name: 'Settings',
     component: () => import('../views/Settings.vue'),
     meta: {
-      title: `Ustawienia - ${PAGE_TITLE}`
-    }
+      title: 'Ustawienia',
+    },
   },
   {
     path: '/tenants',
     name: 'Tenants',
     component: () => import('../views/Tenants.vue'),
     meta: {
-      title: `Lokatorzy - ${PAGE_TITLE}`
-    }
+      title: 'Lokatorzy',
+    },
   },
 ];
 
 const router = new VueRouter({
   routes,
   mode: 'history',
+});
+
+router.beforeEach((to, from) => {
+  Vue.nextTick(() => {
+    document.title = `${to.meta.title} - ${PAGE_TITLE}`;
+  });
 });
 
 export default router;
