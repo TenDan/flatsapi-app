@@ -21,14 +21,14 @@
               :key="i"
             >
               <v-col
-                v-for="(field, i) in parentField"
-                :key="i"
+                v-for="(field, j) in parentField"
+                :key="j"
                 cols="12"
                 sm="6"
                 md="4"
               >
                 <v-text-field
-                  v-model="inputs[i]"
+                  v-model="inputs[i][j]"
                   :label="field.name"
                   :rules="field.rules"
                 ></v-text-field>
@@ -76,7 +76,7 @@ export default {
       e.preventDefault();
       this.$refs.form.validate();
       if (this.valid) {
-        this.$props.action(...this.inputs);
+        this.$props.action(...this.inputs.flat());
       }
     },
   },
