@@ -5,7 +5,7 @@
     :app="$vuetify.breakpoint.smAndDown"
     :fixed="$vuetify.breakpoint.smAndDown"
     color="primary"
-    grow
+    shift
   >
     <v-btn v-for="item in $props.items" :key="item.title" :value="item.link" :to="item.link">
       <span>{{item.title}}</span>
