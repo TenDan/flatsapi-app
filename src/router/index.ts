@@ -54,7 +54,7 @@ const router = new VueRouter({
   mode: 'history',
 });
 
-router.beforeEach((to, from) => {
+router.afterEach((to, from) => {
   Vue.nextTick(() => {
     document.title = `${to.meta.title} - ${PAGE_TITLE}`;
   });
