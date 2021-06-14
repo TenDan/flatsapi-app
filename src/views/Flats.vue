@@ -20,26 +20,72 @@
         </v-btn>
       </v-card-actions>
     </v-card>
-    <v-fab-transition>
-      <v-btn
-        elevation="2"
-        fab
-        bottom
-        large
-        right
-        color="primary"
-        fixed
-        class="mx-5 mb-15 mb-md-5"
-      >
-        <v-icon>add</v-icon>
-      </v-btn>
-    </v-fab-transition>
+    <Dialog :fields="fields" :action="addFlat">
+      <template v-slot:button="props">
+        <v-fab-transition>
+          <v-btn
+            elevation="2"
+            fab
+            bottom
+            large
+            right
+            color="primary"
+            fixed
+            class="mx-5 mb-15 mb-md-5"
+            v-bind="props.btn.attrs"
+            v-on="props.btn.on"
+          >
+            <v-icon>add</v-icon>
+          </v-btn>
+        </v-fab-transition>
+      </template>
+    </Dialog>
   </v-main>
 </template>
 
 <script>
+import Dialog from '../components/universal/Dialog.vue';
+
+const required = (value) => !!value || 'Pole wymagane';
+
 export default {
   name: 'Flats',
+  components: {
+    Dialog,
+  },
+  data() {
+    return {
+      fields: [
+        [
+          {
+            name: 'Blok mieszkalny',
+            rules: [
+              required,
+            ],
+          },
+          {
+            name: 'Adres posiadłości',
+            rules: [
+              required,
+            ],
+          },
+        ],
+        [
+          {
+            name: 'Numer mieszkania',
+            rules: [
+              required,
+            ],
+          },
+        ],
+      ],
+    };
+  },
+  methods: {
+    addFlat(blockOfFlats, address, number) {
+      console.log({ blockOfFlats, address, number });
+    },
+  },
 };
 </script>
 
