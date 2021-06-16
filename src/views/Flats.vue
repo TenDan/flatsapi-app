@@ -1,13 +1,13 @@
 <template>
   <v-main class="pa-5">
     <v-subheader>Mieszkania do kupienia</v-subheader>
-    <v-card elevation="5" class="mx-5 my-8" v-for="n in 10" :key="n">
+    <v-card elevation="5" class="mx-5 my-8" v-for="(flat, i) in flats" :key="i">
       <v-row justify="space-between" align="center">
         <v-col cols="6">
-          <v-card-title class="text-md-h3">Mieszkanie nr {{n}}</v-card-title>
+          <v-card-title class="text-md-h3">{{flat.address}} nr {{flat.number}}</v-card-title>
         </v-col>
         <v-col cols="3">
-          <div class="text-md-h3 text-center">{{n * 10000}} zł</div>
+          <div class="text-md-h3 text-center">{{flat.price}} zł</div>
         </v-col>
       </v-row>
       <v-card-text class="text-body-1">Lorem ipsum</v-card-text>
@@ -47,6 +47,7 @@
 import Dialog from '../components/universal/Dialog.vue';
 
 const required = (value) => !!value || 'Pole wymagane';
+const mustBeANumber = (value) => !!(+value) || 'To musi być liczba';
 
 export default {
   name: 'Flats',
@@ -55,6 +56,26 @@ export default {
   },
   data() {
     return {
+      flats: [
+        {
+          blockOfFlats: null,
+          address: 'Kwiatowa 15',
+          number: '5',
+          price: 15000,
+        },
+        {
+          blockOfFlats: null,
+          address: 'Ogrodowa 3',
+          number: '18',
+          price: 27430,
+        },
+        {
+          blockOfFlats: null,
+          address: 'Testowa 13/14',
+          number: '8',
+          price: 32500,
+        },
+      ],
       fields: [
         [
           {
@@ -78,12 +99,28 @@ export default {
             ],
           },
         ],
+        [
+          {
+            name: 'Cena',
+            rules: [
+              required,
+              mustBeANumber,
+            ],
+          },
+        ],
       ],
     };
   },
   methods: {
-    addFlat(blockOfFlats, address, number) {
-      console.log({ blockOfFlats, address, number });
+    addFlat(blockOfFlats, address, number, price) {
+      /*
+      console.log({
+        blockOfFlats, address, number, price,
+      });
+       */
+      this.flats.push({
+        blockOfFlats, address, number, price,
+      });
     },
   },
 };

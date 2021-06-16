@@ -28,14 +28,7 @@
                 md="4"
               >
                 <v-text-field
-                  v-if="inputs[i] && inputs[i][j]"
-                  v-model="inputs[i][j]"
-                  :label="field.name"
-                  :rules="field.rules"
-                ></v-text-field>
-                <v-text-field
-                  v-else
-                  v-model="inputs[0][j]"
+                  v-model="inputs[field.name]"
                   :label="field.name"
                   :rules="field.rules"
                 ></v-text-field>
@@ -66,8 +59,8 @@ export default {
   data() {
     return {
       valid: null,
-      inputs: [[]],
       dialog: false,
+      rendered: false,
     };
   },
   props: {
@@ -78,12 +71,17 @@ export default {
       type: Function,
     },
   },
+  computed: {
+    inputs() {
+      return {};
+    },
+  },
   methods: {
     submit(e) {
       e.preventDefault();
       this.$refs.form.validate();
       if (this.valid) {
-        this.$props.action(...this.inputs.flat());
+        this.$props.action(...Object.values(this.inputs));
         this.dialog = false;
         this.$refs.form.reset();
       }
