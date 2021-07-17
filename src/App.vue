@@ -5,7 +5,7 @@
         <router-link to="/">Home</router-link> |
         <router-link to="/about">About</router-link>
       </div>-->
-      <navigation></navigation>
+      <navigation v-if="!navDisabled"></navigation>
       <v-main>
         <v-container fluid class="lighten-5 pa-0">
           <router-view></router-view>
@@ -28,6 +28,13 @@ export default {
     this.$vuetify.theme.dark = darkMode;
     this.$vuetify.theme.themes.dark.primary = themeColor;
     this.$vuetify.theme.themes.light.primary = themeColor;
+  },
+  computed: {
+    navDisabled() {
+      const disabledRoutes = ['/', '/login', '/register'];
+
+      return disabledRoutes.includes(this.$route.path);
+    },
   },
 };
 </script>
