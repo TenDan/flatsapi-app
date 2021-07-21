@@ -10,14 +10,14 @@
         Manage your flats and blocks of flats in one place.
       </v-card-subtitle>
       <v-card-actions class="flex justify-center">
-        <v-btn outlined>
+        <v-btn outlined to="/login">
           <v-icon
             left>
             person
           </v-icon>
           Login
         </v-btn>
-        <v-btn outlined>
+        <v-btn outlined to="/register">
           <v-icon
             left>
             person_add
