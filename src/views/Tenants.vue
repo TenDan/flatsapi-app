@@ -42,8 +42,7 @@
 
 <script>
 import Dialog from '../components/universal/Dialog.vue';
-
-const required = (value) => !!value || 'Pole wymagane';
+import { required } from '../common/form/rules';
 
 export default {
   name: 'Tenants',

@@ -45,9 +45,7 @@
 
 <script>
 import Dialog from '../components/universal/Dialog.vue';
-
-const required = (value) => !!value || 'Pole wymagane';
-const mustBeANumber = (value) => !!(+value) || 'To musi być liczba';
+import { required, mustBeANumber } from '../common/form/rules';
 
 export default {
   name: 'Flats',
