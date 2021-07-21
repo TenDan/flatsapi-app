@@ -24,13 +24,13 @@ export default {
       tab: null,
       items: [
         {
-          tabName: 'Wygląd', tabComponent: () => import('../components/settings/AppearanceSettings.vue'),
+          tabName: 'Wygląd', tabComponent: () => import('../../components/settings/AppearanceSettings.vue'),
         },
         {
-          tabName: 'Konto', tabComponent: () => import('../components/settings/AccountSettings.vue'),
+          tabName: 'Konto', tabComponent: () => import('../../components/settings/AccountSettings.vue'),
         },
         {
-          tabName: 'Informacje', tabComponent: () => import('../components/settings/About.vue'),
+          tabName: 'Informacje', tabComponent: () => import('../../components/settings/About.vue'),
         },
       ],
     };

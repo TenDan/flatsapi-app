@@ -8,7 +8,7 @@
     shift
     grow
   >
-    <v-btn v-for="item in $props.items" :key="item.title" :value="item.link" :to="item.link">
+    <v-btn v-for="item in $props.items" :key="item.title" :value="item.link" :to="item.link" exact>
       <span>{{item.title}}</span>
       <v-icon>{{item.icon}}</v-icon>
     </v-btn>

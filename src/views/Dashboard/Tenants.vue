@@ -41,8 +41,8 @@
 </template>
 
 <script>
-import Dialog from '../components/universal/Dialog.vue';
-import { required } from '../common/form/rules';
+import Dialog from '../../components/universal/Dialog.vue';
+import { required } from '../../common/form/rules';
 
 export default {
   name: 'Tenants',

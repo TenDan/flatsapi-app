@@ -18,18 +18,41 @@ const routes: Array<RouteConfig> = [
   {
     path: '/dashboard',
     name: 'Dashboard',
-    component: () => import('../views/Dashboard.vue'),
-    meta: {
-      title: 'Panel główny',
-    },
-  },
-  {
-    path: '/flats',
-    name: 'Flats',
-    component: () => import('../views/Flats.vue'),
-    meta: {
-      title: 'Mieszkania',
-    },
+    component: () => import('../layouts/Dashboard.layout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'Dashboard Index',
+        component: () => import('../views/Dashboard/Index.vue'),
+        meta: {
+          title: 'Panel główny',
+        },
+      },
+      {
+        path: 'flats',
+        name: 'Flats',
+        component: () => import('../views/Dashboard/Flats.vue'),
+        meta: {
+          title: 'Mieszkania',
+        },
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import('../views/Dashboard/Settings.vue'),
+        meta: {
+          title: 'Ustawienia',
+        },
+      },
+      {
+        path: 'tenants',
+        name: 'Tenants',
+        component: () => import('../views/Dashboard/Tenants.vue'),
+        meta: {
+          title: 'Lokatorzy',
+        },
+      },
+    ],
   },
   {
     path: '/login',
@@ -45,22 +68,6 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/Register.vue'),
     meta: {
       title: 'Sign Up',
-    },
-  },
-  {
-    path: '/settings',
-    name: 'Settings',
-    component: () => import('../views/Settings.vue'),
-    meta: {
-      title: 'Ustawienia',
-    },
-  },
-  {
-    path: '/tenants',
-    name: 'Tenants',
-    component: () => import('../views/Tenants.vue'),
-    meta: {
-      title: 'Lokatorzy',
     },
   },
 ];

@@ -10,6 +10,8 @@ import DrawerNavigation from '@/components/nav/DrawerNavigation.vue';
 import BottomNavigation from '@/components/nav/BottomNavigation.vue';
 import { Fragment } from 'vue-fragment';
 
+const prefix = '/dashboard';
+
 export default {
   name: 'Navigation',
   components: {
@@ -24,29 +26,25 @@ export default {
         {
           title: 'Panel główny',
           icon: 'dashboard',
-          link: '/dashboard',
+          link: prefix,
         },
         {
           title: 'Mieszkania',
           icon: 'apartment',
-          link: '/flats',
+          link: `${prefix}/flats`,
         },
         {
           title: 'Wynajmujący',
           icon: 'group',
-          link: '/tenants',
+          link: `${prefix}/tenants`,
         },
         {
           title: 'Ustawienia',
           icon: 'settings',
-          link: '/settings',
+          link: `${prefix}/settings`,
         },
       ],
     };
   },
 };
 </script>
-
-<style scoped>
-
-</style>

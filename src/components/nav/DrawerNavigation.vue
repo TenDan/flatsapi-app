@@ -36,6 +36,7 @@
                      link
                      :to="item.link"
                      class="text-center"
+                     exact
         >
           <v-list-item-icon>
             <v-icon>{{item.icon}}</v-icon>

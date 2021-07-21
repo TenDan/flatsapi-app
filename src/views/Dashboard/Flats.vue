@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import Dialog from '../components/universal/Dialog.vue';
-import { required, mustBeANumber } from '../common/form/rules';
+import Dialog from '../../components/universal/Dialog.vue';
+import { required, mustBeANumber } from '../../common/form/rules';
 
 export default {
   name: 'Flats',
