@@ -42,7 +42,7 @@
 
 <script>
 import Dialog from '../../components/universal/Dialog.vue';
-import { required } from '../../common/form/rules';
+import { isRequired } from '../../common/form/rules';
 
 export default {
   name: 'Tenants',
@@ -71,13 +71,13 @@ export default {
           {
             name: 'Imię',
             rules: [
-              required,
+              isRequired,
             ],
           },
           {
             name: 'Nazwisko',
             rules: [
-              required,
+              isRequired,
             ],
           },
         ],

@@ -46,7 +46,7 @@
 </template>
 
 <script>
-import { minLength, required } from '../common/form/rules';
+import { minLength, isRequired } from '../common/form/rules';
 
 export default {
   name: 'Login',
@@ -54,8 +54,8 @@ export default {
     return {
       valid: null,
       fieldRules: {
-        usernameOrEmail: [required, minLength(5)],
-        password: [required],
+        usernameOrEmail: [isRequired, minLength(5)],
+        password: [isRequired],
       },
       fields: {
         usernameOrEmail: '',

@@ -45,7 +45,7 @@
 
 <script>
 import Dialog from '../../components/universal/Dialog.vue';
-import { required, mustBeANumber } from '../../common/form/rules';
+import { isRequired, isNumber } from '../../common/form/rules';
 
 export default {
   name: 'Flats',
@@ -79,13 +79,13 @@ export default {
           {
             name: 'Blok mieszkalny',
             rules: [
-              required,
+              isRequired,
             ],
           },
           {
             name: 'Adres posiadłości',
             rules: [
-              required,
+              isRequired,
             ],
           },
         ],
@@ -93,7 +93,7 @@ export default {
           {
             name: 'Numer mieszkania',
             rules: [
-              required,
+              isRequired,
             ],
           },
         ],
@@ -101,8 +101,8 @@ export default {
           {
             name: 'Cena',
             rules: [
-              required,
-              mustBeANumber,
+              isRequired,
+              isNumber,
             ],
           },
         ],
