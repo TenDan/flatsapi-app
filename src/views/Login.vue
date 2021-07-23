@@ -15,12 +15,12 @@
         <v-card-text>
           <v-text-field
             label="Username or Email"
-            :rules="fieldRules.usernameOrEmailRules"
+            :rules="fieldRules.usernameOrEmail"
             :value="fields.usernameOrEmail"
           ></v-text-field>
           <v-text-field
             label="Password"
-            :rules="fieldRules.passwordRules"
+            :rules="fieldRules.password"
             :value="fields.password"
           ></v-text-field>
           <v-checkbox
@@ -54,8 +54,8 @@ export default {
     return {
       valid: null,
       fieldRules: {
-        usernameOrEmailRules: [required, minLength(5)],
-        passwordRules: [required],
+        usernameOrEmail: [required, minLength(5)],
+        password: [required],
       },
       fields: {
         usernameOrEmail: '',
